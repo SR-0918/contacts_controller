@@ -1,0 +1,42 @@
+<div class="main contact-new">
+  <div class="container">
+    <div class="contact-create">お問い合わせ</div>
+    <div class="form contact-form">
+      <div class="form-body">
+       
+        <% if @error_message %>
+          <div class="form-error">
+            <%= @error_message %>
+          </div>
+        <% end %>
+        <%= form_tag("contacts/create") do %>
+
+          <p>対象URLのページ(任意)</p>
+          <input type="text" value = "<%= @url %>">
+
+          <p>不具合を確認したゲームタイトル(任意)</p>
+          <input type="text" value = "<%= @title %>">
+
+          <p>不具合を確認したサービス名<p class = "red">(必須)</p></p>
+          <input type="text" value = "<%= @service %>">
+
+          <p>不具合発生時の通信環境<p class = "red">(必須)</p></p>
+          <input type="text" value = "<%= @enviroment %>">
+
+          <p>不具合を確認したときの操作手順<p class = "red">(必須)</p></p>
+          <input type="text" value = "<%= @operation %>">
+
+          <p>不具合の内容<p class = "red">(必須)</p></p>
+          <input type="text" value = "<%= @message %>">
+
+          <p>お名前<p class = "red">(必須)</p></p>
+          <input type="text" value = "<%= @name %>">
+          
+          <p>Eメールアドレス<p class = "red">(必須)</p></p>
+          <input type="text" value = "<%= @email %>">
+
+          <input type="submit" value="送信する">
+        <% end %>
+      </div>
+    </div>
+  </div>
