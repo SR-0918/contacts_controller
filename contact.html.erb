@@ -1,25 +1,58 @@
 <div class="main contact-new">
-  <div class="container">
+  <div class="contact-container">
     <div class="contact-create">お問い合わせ</div>
     <div class="form contact-form">
-      <div class="form-body">
+      <div class="contact-form-body">
        
         <% if @error_message %>
           <div class="form-error">
             <%= @error_message %>
           </div>
         <% end %>
+      <h1>お問い合わせ前にご確認ください</h1><br>
+      <p>WGSサイトやアプリの使い方で不明な点や、不具合と思われる症状が発生した場合など、</p><br>
+      <p>多くの問題は<a href = "" class = "blue">ヘルプページ</a>を確認することで解決できます。</p><br>
+      <p class = "red">お問い合わせへの回答にはお時間をいただく場合がありますので、お問い合わせをする前に<a  href = "" class = "blue">ヘルプ</a>をご確認ください。</p><br>
+      <h2>よくあるご質問</h2><br>
+      <ul class = "hint">
+        <li><a href = "">Q.WGSからのメールが届かない</a></li>
+        <li><a href = "">Q.会員登録する時にエラーが表示される</a></li>
+        <li><a href = "">Q.記事に投稿した内容がSNSフィードに反映されない</a></li>
+        <li><a href = "">Q.投稿した内容が削除される</a></li>
+        <li><a href = "">Q.投稿が制限される、アカウント停止になった</a></li>
+        <li><a href = "">Q.不快な投稿がある、不快なユーザーをブロックしたい</a></li>
+        <li><a href = "">Q.アプリや記事の表示・挙動がおかしくなった</a></li>
+        <li><a href = "">Q.サイト投稿時にエラーが表示されて投稿できない</a></li>
+        <li><a href = "">Q.その他、不明な内容がある場合</a></li>
+      </ul><br>
+
+      <h2>ゲームに関するお問い合わせ</h2><br>
+      <p>誠に恐れ入りますが、こちらはWGSのサービスに関する窓口でございます。</p><br>
+      <p>当サイトはゲームの運営会社ではございませんので、</p><br>
+      <p>ゲーム内容に関するお問い合わせは、ゲーム運営会社様の方へ直接お問い合わせいただけますようお願い申し上げます。</p><br>
+      <p>例：ゲームプレイ中に発生した不具合、ログインやデータ引継ぎができない、ゲームのキャンペーンや仕様についての質問など</p><br>
+
+      <h2>WGSへの営業やプレスリリース情報・採用等に関するお問い合わせ</h2>
+      <p><a href = "" class = "blue">コーポレートサイト</a>より<a href = "" class = "red">「お問い合わせ種類」をご選択の上</a>、お問い合わせいただけますようお願いいたします。</p><br>
+      <h3>よくあるお問い合わせ</h3><br>
+      <p>・新作タイトル情報やプレスリリースに関するお問い合わせは下記をご選択ください。</p>
+      <p>お問い合わせ種類：新作タイトルや更新情報の掲載について</p><br>
+      <p>・広告掲載や営業に関するお問い合わせは下記をご選択ください。</p>
+      <p>お問い合わせ種類：広告掲載について</p><br>
+      <p>・求人や採用に関する内容、または採用支援に関する営業は下記をご選択ください。</p>
+      <p>お問い合わせ種類：社員採用・採用支援・人材開発について</p><br>
+
        <%= form_with url:{controller: 'contacts', action: 'create'} do |f| %>
          <%= f.label :対象URLのページ %><br>
-         <%= f.text_field :url %><br>
+         <%= f.text_field :url , placeholder: "例:https:wgs.jp"%><br>
          <%= f.label :不具合を確認したゲームタイトル %><br>
-         <%= f.text_field :title %><br>
+         <%= f.text_field :title, placeholder: "例:モンスターストライク"%><br>
          <%= f.label :不具合を確認したサービス名 %><br>
-         <%= f.text_field :service %><br>
+         <%= f.text_field :service, placeholder: "例:記事名、掲示板名、SNSページ、アプリ機能など" %><br>
          <%= f.label :不具合を確認したときの操作手順 %><br>
-         <%= f.text_field :operation %><br>
+         <%= f.text_area :operation, placeholder: "例:問題の早期発見のため、不具合確認時の操作内容をできるたけ詳しく入力してください", size: "30x10" %><br>
          <%= f.label :不具合の内容 %><br>
-         <%= f.text_field :message %><br>
+         <%= f.text_area :message, placeholder: "例:問題の早期発見のため、不具合確認時の操作内容をできるたけ詳しく入力してください", size: "30x10" %><br>
          <%= f.label :お名前 %><br>
          <%= f.text_field :name %><br>
          <%= f.label :Eメールアドレス %><br>
