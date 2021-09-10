@@ -42,23 +42,52 @@
       <p>・求人や採用に関する内容、または採用支援に関する営業は下記をご選択ください。</p>
       <p>お問い合わせ種類：社員採用・採用支援・人材開発について</p><br>
 
-       <%= form_with url:{controller: 'contacts', action: 'create'} do |f| %>
-         <%= f.label :対象URLのページ %><br>
-         <%= f.text_field :url , placeholder: "例:https:wgs.jp"%><br>
-         <%= f.label :不具合を確認したゲームタイトル %><br>
-         <%= f.text_field :title, placeholder: "例:モンスターストライク"%><br>
-         <%= f.label :不具合を確認したサービス名 %><br>
-         <%= f.text_field :service, placeholder: "例:記事名、掲示板名、SNSページ、アプリ機能など" %><br>
-         <%= f.label :不具合を確認したときの操作手順 %><br>
-         <%= f.text_area :operation, placeholder: "例:問題の早期発見のため、不具合確認時の操作内容をできるたけ詳しく入力してください", size: "30x10" %><br>
-         <%= f.label :不具合の内容 %><br>
-         <%= f.text_area :message, placeholder: "例:問題の早期発見のため、不具合確認時の操作内容をできるたけ詳しく入力してください", size: "30x10" %><br>
-         <%= f.label :お名前 %><br>
-         <%= f.text_field :name %><br>
-         <%= f.label :Eメールアドレス %><br>
-         <%= f.text_field :email %><br>
-        <%= f.submit '送信' %>
-      <% end %>
+
+
+
+      <div class="tab-wrap">
+
+        <input id="tab01" type="radio" name="tab" class="tab-switch" checked="checked"><label class="tab-label" for="tab01">不具合報告</label>
+          <div class="tab-content">
+            <%= form_with url:{controller: 'contacts', action: 'create'} do |f| %>
+              <%= f.label :対象URLのページ %><br>
+              <%= f.text_field :url , placeholder: "例:https:wgs.jp"%><br>
+              <%= f.label :不具合を確認したゲームタイトル %><br>
+              <%= f.text_field :title, placeholder: "例:モンスターストライク"%><br>
+              <%= f.label :不具合を確認したサービス名 %><br>
+              <%= f.text_field :service, placeholder: "例:記事名、掲示板名、SNSページ、アプリ機能など" %><br>
+              <%= f.label :不具合を確認したときの操作手順 %><br>
+              <%= f.text_area :operation, placeholder: "例:問題の早期発見のため、不具合確認時の操作内容をできるたけ詳しく入力してください", size: "30x10" %><br>
+              <%= f.label :不具合の内容 %><br>
+              <%= f.text_area :message, placeholder: "例:問題の早期発見のため、不具合確認時の操作内容をできるたけ詳しく入力してください", size: "30x10" %><br>
+              <%= f.label :お名前 %><br>
+              <%= f.text_field :name %><br>
+              <%= f.label :Eメールアドレス %><br>
+              <%= f.text_field :email %><br>
+              <%= f.label :画像を添付%>
+              <%= f.file_field :contactimage, multiple: true%>
+              <%= f.submit '送信' %>
+            <% end %>
+          </div>
+
+        <input id="tab02" type="radio" name="tab" class="tab-switch"><label class="tab-label" for="tab02">通報</label>
+          <div class="tab-content">
+            コンテンツ 2
+          </div>
+
+        <input id="tab03" type="radio" name="tab" class="tab-switch"><label class="tab-label" for="tab03">その他</label>
+          <div class="tab-content">
+            コンテンツ 3
+          </div>
+    
+      </div>
+
+
+
+
+
+
+       
       </div>
     </div>
   </div>

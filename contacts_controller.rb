@@ -7,6 +7,7 @@ class ContactsController < ApplicationController
       @contact = Contact.new(
         contact_params
       )
+
       if @contact.save
           ContactMailer.contact_mail(@contact).deliver
           flash[:notice] = "送信しました"
@@ -23,7 +24,7 @@ class ContactsController < ApplicationController
     private
   
     def contact_params
-      params.permit(:name, :message, :url, :title, :service, :operation, :email)
+      params.permit(:name, :message, :url, :title, :service, :operation, :email, contactimage: [])
     end
   
   end
